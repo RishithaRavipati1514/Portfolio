@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Student Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        body {
+    background: linear-gradient(to bottom, #74ebd5, #acb6e5);
+}
+
+        .container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 400px;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            margin-bottom: 1.5rem;
+            color: #333333;
+        }
+        .flash-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+        }
+        label {
+            display: block;
+            margin: 0.5rem 0 0.25rem;
+            text-align: left;
+            font-weight: 500;
+            color: #555;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        input:focus {
+            outline: none;
+            border-color: #0073e6;
+            box-shadow: 0 0 4px rgba(0, 115, 230, 0.3);
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        @media (max-width: 500px) {
+            .container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo">
+        
+        <h1>Login</h1>
+        
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-message">{{ messages[0] }}</div>
+        {% endif %}
+        {% endwith %}
+        
+        <!-- Login Form -->
+        <form method="POST" action="{{ url_for('login') }}">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" aria-label="Enter your username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" aria-label="Enter your password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    
+    <!-- JavaScript for Flash Messages -->
+    <script>
+        // Fade out flash messages after 3 seconds
+        setTimeout(() => {
+            const flashMessage = document.querySelector('.flash-message');
+            if (flashMessage) {
+                flashMessage.style.opacity = '0';
+                setTimeout(() => flashMessage.remove(), 1000);
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
+

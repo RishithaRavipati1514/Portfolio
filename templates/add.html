@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            text-align: left;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            transition: all 0.2s ease-in-out;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #0073e6;
+            box-shadow: 0 0 6px rgba(0, 115, 230, 0.3);
+            background-color: #ffffff;
+        }
+
+        button {
+            padding: 0.9rem;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #f76b1c, #feb24c);
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Student</h1>
+        <form method="POST">
+            <label for="roll_no">Roll No:</label>
+            <input type="number" id="roll_no" name="roll_no" placeholder="Enter roll number" aria-label="Roll number" required>
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter student name" aria-label="Student name" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter age" aria-label="Student age" required>
+            
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" aria-label="Select gender">
+                <option value="" disabled selected>Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            
+            <label for="course">Course:</label>
+            <select id="course" name="course" required>
+                <option value="" disabled selected>Select a Course</option>
+                <option value="CSE">Computer Science and Engineering (CSE)</option>
+                <option value="ECE">Electronics and Communication Engineering (ECE)</option>
+                <option value="EEE">Electrical and Electronics Engineering (EEE)</option>
+                <option value="MECH">Mechanical Engineering (MECH)</option>
+                <option value="CIVIL">Civil Engineering (CIVIL)</option>
+            </select>
+            
+            <label for="grade">Grade:</label>
+            <select id="grade" name="grade" required>
+               <option value="" disabled selected>Select a Grade</option>
+               <option value="A+">A+ (Outstanding)</option>
+               <option value="A">A (Excellent)</option>
+               <option value="B+">B+ (Very Good)</option>
+               <option value="B">B (Good)</option>
+               <option value="C">C (Average)</option>
+               <option value="D">D (Below Average)</option>
+               <option value="F">F (Fail)</option>
+            </select>
+            
+            <button type="submit">Add Student</button>
+        </form>
+    </div>
+</body>
+</html>
